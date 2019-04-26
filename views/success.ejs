@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%=title %> - Success</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+<!--Header-->
+<header>
+    <div class="container">
+			<span class="home-logo">
+				 <div id="homeLogo">
+        <img src="../psd/logo_sm_transparent.png" alt="bigmarketLogo" width="350px" height="200px"></div>
+			</span>
+    </div>
+</header>
+
+<div class="container">
+    <div id="redirectText">
+        <h1>Success! Redirecting in 3 seconds,</h1>
+        <h2>or click <a href="/dashboard">here</a> to redirect.</h2>
+    </div>
+</div>
+
+<footer>
+    <h2>Copyrights &copy; Reserved by Big Market, 2019.</h2>
+</footer>
+
+<script>
+    setTimeout(function () {
+        // after 2 seconds
+        window.location = "/dashboard";
+    }, 3000)
+</script>
+
+</body>
+</html>

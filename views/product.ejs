@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%=title %> - <%= product.name%></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+<!--Header-->
+<header>
+    <div class="container">
+			<span class="home-logo">
+				 <div id="homeLogo">
+        <a href="/index-active"><img src="../psd/logo_sm_transparent.png" alt="bigmarketLogo" width="350px" height="200px"></a></div>
+			</span>
+        <nav id="navbar">
+            <ul>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/users/logout">Log Out</a></li>
+                <li><a href="/about-active">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!--Product Section-->
+<div class="container">
+    <form action="/product/<%= product._id%>" method="POST" name="product">
+        <div id="productPageList">
+            <ul>
+                <li>ID: <%= product._id%></li>
+                <li>Name: <%= product.name%></li>
+                <li>Price: <%= product.price%></li>
+                <li>Seller: <%= product.sellerID%></li>
+            </ul>
+        </div>
+        <button type="submit" id="buyProduct">Buy</button>
+    </form>
+</div>
+
+<div style="margin-top: 120px"></div>
+
+<footer>
+    <h2>Copyrights &copy; Reserved by Big Market, 2019.</h2>
+</footer>
+</body>
+</html>
