@@ -37,12 +37,12 @@ router.get('/', function (req, res) {
                     res.send(err);
                 } else if (result.length) {
                     res.render('index', {
-                        title: 'Big Market',
+                        title: 'Expedi-A',
                         data: result
                     });
                 } else {
                     res.render('index', {
-                        title: 'Big Market',
+                        title: 'Expedi-A',
                         data: result
                     });
                 }
@@ -81,14 +81,14 @@ router.get('/dashboard', ensureAuthenticated, function(req, res){
                 res.render('dashboard', {
                     data: result,
                     user: req.user,
-                    title: 'Big Market',
+                    title: 'Expedi-A',
                     userUsername: req.user.username,
                     credits: req.user.credits
                 });
             } else {
                 res.render('dashboard', {
                     user: req.user,
-                    title: 'Big Market',
+                    title: 'Expedi-A',
                     userUsername: req.user.username,
                     credits: req.user.credits,
                     data: result
@@ -120,7 +120,7 @@ router.post('/dashboard',ensureAuthenticated,function (req, res){
 
 // About
 router.get('/about', function (req, res) {
-    res.render('about', {title: 'Big Market'});
+    res.render('about', {title: 'Expedi-A'});
 });
 
 // Index when logged in
@@ -149,13 +149,13 @@ router.get('/index-active', ensureAuthenticated,function (req, res){
                     res.send(err);
                 } else if (result.length) {
                     res.render('index-active', {
-                        title: 'Big Market',
+                        title: 'Expedi-A',
                         data: result,
                         credits: req.user.credits,
                     });
                 } else {
                     res.render('index-active', {
-                        title: 'Big Market',
+                        title: 'Expedi-A',
                         data: result,
                         credits: req.user.credits,
                     });}
@@ -169,7 +169,7 @@ router.get('/index-active', ensureAuthenticated,function (req, res){
 // About when logged in
 router.get('/about-active', ensureAuthenticated, (req, res) =>
     res.render('about-active', {
-        title: 'Big Market'
+        title: 'Expedi-A'
     })
 );
 
@@ -182,7 +182,7 @@ router.get('/product/:productID', ensureAuthenticated, function (req, res){
         .then(product => {
             if(product){
                 res.render('product',{
-                    title:'Big Market',
+                    title:'Expedi-A',
                     product:product
                 });
             }else{
@@ -349,7 +349,7 @@ router.get('/success/', ensureAuthenticated, function(req,res){
     // console.log('price:', price);
 
     if(!UpdateSellerBalance(sellerID, price)) {
-        (res.render('success', {title: 'Big Market'}))
+        (res.render('success', {title: 'Expedi-A'}))
     }else{
         res.send('Could not update seller balance.')
     }
