@@ -39,7 +39,7 @@ contract Consortium {
     }
 
     /*
-     * User 
+     * User
      */
 
     function register(string memory _username) private {
@@ -54,6 +54,7 @@ contract Consortium {
     	require(user_address != '');
         uint flight_id = users_map[user_address].airline_ticket;
         uint balance = users_map[user_address].balance;
+				userCount -= 1;
 
         // Empty username and balance
     	users_map[user_address].username = '';
@@ -65,7 +66,7 @@ contract Consortium {
     }
 
     /*
-     * Airline 
+     * Airline
      */
 
     function flight_ticket_init(string memory _name, uint _seat, uint _balance) private {
@@ -89,7 +90,7 @@ contract Consortium {
         airlines_map[original_airline_id].balance = 0;
         airlines_map[original_airline_id].seats += 1;
 
-        // User 
+        // User
         users_map[user_address].airline_ticket = airline_id;
      }
 
