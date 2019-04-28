@@ -1,7 +1,7 @@
 {
-  "name": "blockchain_market",
+  "name": "airplane_consortium",
   "version": "0.0.0",
-  "description": "A market trade place backed by blockchain technology",
+  "description": "An airplane consortium developed by blockchain technology",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

@@ -14,7 +14,7 @@ require('./config/passport')(passport);
 // Connect to MongoDB
 mongoose
   .connect(
-    'mongodb://localhost/blockchain_market',
+    'mongodb://localhost/airplane_consortium',
     { useNewUrlParser: true }
   )
   .then(() => console.log('MongoDB Connected'))

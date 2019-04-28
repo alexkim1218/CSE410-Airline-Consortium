@@ -7,12 +7,12 @@ const User = require('../models/User');
 
 /* GET login. */
 router.get('/login', function (req, res) {
-  res.render('login', {title: 'Big Market'});
+  res.render('login', {title: 'Expedi-A'});
 });
 
 /* GET signup. */
 router.get('/signup', function (req, res) {
-  res.render('signup', {title: 'Big Market'});
+  res.render('signup', {title: 'Expedi-A'});
 });
 
 // Signup

@@ -15,7 +15,7 @@ const User = require('../models/User');
 router.get('/', function (req, res) {
 
     var MongoClient = mongodb.MongoClient;
-    var url = 'mongodb://localhost/blockchain_market';
+    var url = 'mongodb://localhost/airplane_consortium';
 
     // Connect to the server
     MongoClient.connect(url, function (err, db) {
@@ -28,7 +28,7 @@ router.get('/', function (req, res) {
             // In order to pull data from database,
             // We need to get the entire database first,
             // Then from there we take the collections we want.
-            const productDatabase = db.db('blockchain_market');
+            const productDatabase = db.db('airplane_consortium');
             var collection = productDatabase.collection('products');
 
             // Find all products
@@ -57,7 +57,7 @@ router.get('/', function (req, res) {
 router.get('/dashboard', ensureAuthenticated, function(req, res){
 
     var MongoClient = mongodb.MongoClient;
-    var url = 'mongodb://localhost/blockchain_market';
+    var url = 'mongodb://localhost/airplane_consortium';
 
     // Connect to the server
     MongoClient.connect(url, function (err, db) {
@@ -70,7 +70,7 @@ router.get('/dashboard', ensureAuthenticated, function(req, res){
         // In order to pull data from database,
         // We need to get the entire database first,
         // Then from there we take the collections we want.
-        const productDatabase = db.db('blockchain_market');
+        const productDatabase = db.db('airplane_consortium');
         var collection = productDatabase.collection('products');
 
         // Find all products
@@ -118,16 +118,12 @@ router.post('/dashboard',ensureAuthenticated,function (req, res){
 
 });
 
-// About
-router.get('/about', function (req, res) {
-    res.render('about', {title: 'Expedi-A'});
-});
 
 // Index when logged in
 router.get('/index-active', ensureAuthenticated,function (req, res){
 
     var MongoClient = mongodb.MongoClient;
-    var url = 'mongodb://localhost/blockchain_market';
+    var url = 'mongodb://localhost/airplane_consortium';
 
     // Connect to the server
     MongoClient.connect(url, function (err, db) {
@@ -140,7 +136,7 @@ router.get('/index-active', ensureAuthenticated,function (req, res){
             // In order to pull data from database,
             // We need to get the entire database first,
             // Then from there we take the collections we want.
-            const productDatabase = db.db('blockchain_market');
+            const productDatabase = db.db('airplane_consortium');
             const collection = productDatabase.collection('products');
 
             // Find all products
@@ -165,13 +161,6 @@ router.get('/index-active', ensureAuthenticated,function (req, res){
         }
     });
 });
-
-// About when logged in
-router.get('/about-active', ensureAuthenticated, (req, res) =>
-    res.render('about-active', {
-        title: 'Expedi-A'
-    })
-);
 
 // Product page
 router.get('/product/:productID', ensureAuthenticated, function (req, res){
@@ -217,7 +206,7 @@ function UpdateSellerBalance(seller, price) {
             // console.log('newBalance: ',newBalance);
 
             const MongoClient = mongodb.MongoClient;
-            const url = 'mongodb://localhost/blockchain_market';
+            const url = 'mongodb://localhost/airplane_consortium';
 
             // Connect to the server
             MongoClient.connect(url, function (err, db) {
@@ -230,7 +219,7 @@ function UpdateSellerBalance(seller, price) {
                     // In order to pull data from database,
                     // We need to get the entire database first,
                     // Then from there we take the collections we want.
-                    const productDatabase = db.db('blockchain_market');
+                    const productDatabase = db.db('airplane_consortium');
                     const collection = productDatabase.collection('users');
 
                     //Update seller
@@ -269,7 +258,7 @@ function transaction (productId, buyer, seller, buyerBalance, price) {
         });
 
     const MongoClient = mongodb.MongoClient;
-    const url = 'mongodb://localhost/blockchain_market';
+    const url = 'mongodb://localhost/airplane_consortium';
 
     // Connect to the server
     MongoClient.connect(url, function (err, db) {
@@ -282,7 +271,7 @@ function transaction (productId, buyer, seller, buyerBalance, price) {
             // In order to pull data from database,
             // We need to get the entire database first,
             // Then from there we take the collections we want.
-            const productDatabase = db.db('blockchain_market');
+            const productDatabase = db.db('airplane_consortium');
             const collection = productDatabase.collection('users');
 
             // Update buyer
