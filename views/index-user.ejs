@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%=title %> : Home</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+<!--Header-->
+<header>
+  <div class="container">
+			<span class="home-logo">
+				 <div id="homeLogo">
+           <a href="/index-user"><img src="../psd/logo_sm_transparent.png" alt="expedialogo" width="350px" height="100px"></a></div>
+   			</span>
+    <nav id="navbar">
+      <ul>
+        <li><a href="/users/logout">Log Out</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <center><h1>Welcome back, <span class="username"><%= userUsername%></span>!</h1></center><br>
+
+  <div class="available_airlines" style="margin-top: 30px;">
+    <center><h1>Available Airlines</h1></center>
+  </div>
+
+  <center>
+  <table>
+    <tr>
+      <td colspan="6" bgcolor="#EEC218"><font size="4">
+        <strong>American Airlines</strong></font></td>
+    </tr>
+  <tr>
+    <td><strong>Seller</strong></td>
+    <td><strong>Item ID</strong></td>
+    <td><strong>Product</strong></td>
+    <td><strong>Price</strong></td>
+    <td><strong>Status</strong></td>
+  </tr>
+    <% for(var i=0; i < data.length; i++) { %>
+  <tr>
+    <td><%= data[i].sellerID %></td>
+    <td><%= data[i]._id %></td>
+    <td><%= data[i].name %></td>
+    <td><%= data[i].price %></td>
+    <td><button class="buy" onclick="window.location.href='/users/login';">Buy</button></td>
+  </tr>
+    <% } %>
+</table>
+
+
+
+<table>
+  <tr>
+    <td colspan="6" bgcolor="#EEC218"><font size="4">
+        <strong>Delta Airlines</strong></font></td>
+  </tr>
+  <tr>
+    <td><strong>Seller</strong></td>
+    <td><strong>Item ID</strong></td>
+    <td><strong>Product</strong></td>
+    <td><strong>Price</strong></td>
+  </tr>
+  <% for(var i=0; i < data.length; i++) { %>
+    <tr>
+      <td><%= data[i].sellerID %></td>
+      <td><a href="/product/<%= data[i]._id %>"><%= data[i]._id %></a></td>
+      <td><%= data[i].name %></td>
+      <td><%= data[i].price %></td>
+    </tr>
+  <% } %>
+</table>
+
+
+
+<table>
+  <tr>
+    <td colspan="6" bgcolor="#EEC218"><font size="4">
+        <strong>United Airlines</strong></font></td>
+  </tr>
+  <tr>
+    <td><strong>Seller</strong></td>
+    <td><strong>Item ID</strong></td>
+    <td><strong>Product</strong></td>
+    <td><strong>Price</strong></td>
+  </tr>
+  <% for(var i=0; i < data.length; i++) { %>
+    <tr>
+      <td><%= data[i].sellerID %></td>
+      <td><a href="/product/<%= data[i]._id %>"><%= data[i]._id %></a></td>
+      <td><%= data[i].name %></td>
+      <td><%= data[i].price %></td>
+    </tr>
+  <% } %>
+</table>
+</center>
+
+<div style="margin-top: 150px"></div>
+
+<footer>
+  <h2>Copyrights &copy; Reserved by Expedi-A, 2019.</h2>
+</footer>
+  </div>
+</body>
+</html>
