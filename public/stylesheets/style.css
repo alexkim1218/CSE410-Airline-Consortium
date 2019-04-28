@@ -104,8 +104,8 @@ header .home-logo a:hover{
 	color: #dfe3ee;
 }
 
-/* Transaction */
-.latest_transaction h1{
+/* Airlines */
+.available_airlines h1{
 	font-style:italic;
 	font-size:40px
 }

@@ -9,26 +9,23 @@
 <header>
   <div class="container">
 			<span class="home-logo">
-        <div id="homeLogo">
-          <a href="/"><img src="../psd/logo_sm_transparent.png" alt="expedialogo" width="350px" height="100px"></a></div>
-       </span>
+				 <div id="homeLogo">
+           <a href="/index-staff"><img src="../psd/logo_sm_transparent.png" alt="expedialogo" width="350px" height="100px"></a></div>
+   			</span>
     <nav id="navbar">
       <ul>
-        <li><a href="/users/signup">Sign Up</a></li>
-        <li><a href="/users/login">Log In</a></li>
+        <li><a href="/users/logout">Log Out</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<div style="margin-bottom: 0px"></div>
+<div class="container">
+  <center><h1>Welcome back, <span class="username"><%= userUsername%></span>!</h1></center><br>
 
-<div>
-  <div class="available_airlines">
+  <div class="available_airlines" style="margin-top: 30px;">
     <center><h1>Available Airlines</h1></center>
   </div>
-
-
 
   <center>
   <table>
@@ -101,13 +98,11 @@
 </table>
 </center>
 
-
-
-  </div>
-<div style="margin-top: 250px"></div>
+<div style="margin-top: 150px"></div>
 
 <footer>
   <h2>Copyrights &copy; Reserved by Expedi-A, 2019.</h2>
 </footer>
+  </div>
 </body>
 </html>

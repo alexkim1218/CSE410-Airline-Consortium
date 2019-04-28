@@ -53,74 +53,8 @@ router.get('/', function (req, res) {
     });
 });
 
-// Dashboard
-router.get('/dashboard', ensureAuthenticated, function(req, res){
-
-    var MongoClient = mongodb.MongoClient;
-    var url = 'mongodb://localhost/airplane_consortium';
-
-    // Connect to the server
-    MongoClient.connect(url, function (err, db) {
-    if (err) {
-        console.log('Unable to connect to the Server', err);
-    } else {
-        // Connected
-        console.log('Connection to dashboard established');
-
-        // In order to pull data from database,
-        // We need to get the entire database first,
-        // Then from there we take the collections we want.
-        const productDatabase = db.db('airplane_consortium');
-        var collection = productDatabase.collection('products');
-
-        // Find all products
-        collection.find({sellerID: req.user.username}).toArray(function (err, result) {
-            if (err) {
-                res.send(err);
-            } else if (result) {
-                res.render('dashboard', {
-                    data: result,
-                    user: req.user,
-                    title: 'Expedi-A',
-                    userUsername: req.user.username,
-                    credits: req.user.credits
-                });
-            } else {
-                res.render('dashboard', {
-                    user: req.user,
-                    title: 'Expedi-A',
-                    userUsername: req.user.username,
-                    credits: req.user.credits,
-                    data: result
-                });
-            //Close connection
-            db.close();
-        }})
-    }});
-});
-
-// Generate new product
-router.post('/dashboard',ensureAuthenticated,function (req, res){
-    const {name, price} = req.body;
-
-    const newProduct = new Product({
-        sellerID: req.user.username,
-        name: name,
-        price: price,
-    });
-
-    newProduct
-        .save()
-        .then(product => {
-            console.log(product);
-            res.redirect('/index-active');
-        });
-
-});
-
-
 // Index when logged in
-router.get('/index-active', ensureAuthenticated,function (req, res){
+router.get('/index-user', ensureAuthenticated,function (req, res){
 
     var MongoClient = mongodb.MongoClient;
     var url = 'mongodb://localhost/airplane_consortium';
@@ -144,16 +78,18 @@ router.get('/index-active', ensureAuthenticated,function (req, res){
                 if (err) {
                     res.send(err);
                 } else if (result.length) {
-                    res.render('index-active', {
+                    res.render('index-user', {
                         title: 'Expedi-A',
                         data: result,
                         credits: req.user.credits,
+                        userUsername: req.user.username,
                     });
                 } else {
-                    res.render('index-active', {
+                    res.render('index-user', {
                         title: 'Expedi-A',
                         data: result,
                         credits: req.user.credits,
+                        userUsername: req.user.username,
                     });}
                 //Close connection
                 db.close();
