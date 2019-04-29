@@ -39,13 +39,13 @@ App = {
   },
 
   initContract: function() {
-      $.getJSON('Ballot.json', function(data) {
+    $.getJSON('Consortium.json', function(data) {
     // Get the necessary contract artifact file and instantiate it with truffle-contract
     var voteArtifact = data;
-    App.contracts.vote = TruffleContract(voteArtifact);
+    App.contracts.response = TruffleContract(voteArtifact);
 
     // Set the provider for our contract
-    App.contracts.vote.setProvider(App.web3Provider);
+    App.contracts.response.setProvider(App.web3Provider);
     
     App.getChairperson();
     return App.bindEvents();
@@ -70,7 +70,7 @@ App = {
   },
 
   getChairperson : function(){
-    App.contracts.vote.deployed().then(function(instance) {
+    App.contracts.response.deployed().then(function(instance) {
       return instance;
     }).then(function(result) {
       App.chairPerson = result.constructor.currentProvider.selectedAddress.toString();
@@ -88,9 +88,9 @@ App = {
   handleRegister: function(addr){
 
     var voteInstance;
-    App.contracts.vote.deployed().then(function(instance) {
+    App.contracts.response.deployed().then(function(instance) {
       voteInstance = instance;
-      return voteInstance.register(addr);
+      return voteInstance.register(addr, 1);
     }).then(function(result, err){
         if(result){
             if(parseInt(result.receipt.status) == 1)
@@ -106,15 +106,18 @@ App = {
   handleVote: function(event) {
     event.preventDefault();
     var proposalId = parseInt($(event.target).data('id'));
+    console.log('id', proposalId);
     var voteInstance;
 
     web3.eth.getAccounts(function(error, accounts) {
       var account = accounts[0];
+      console.log('account', account);
 
-      App.contracts.vote.deployed().then(function(instance) {
+      App.contracts.response.deployed().then(function(instance) {
         voteInstance = instance;
+        console.log('pressed');
 
-        return voteInstance.vote(proposalId, {from: account});
+        return voteInstance.response(proposalId, {from: account});
       }).then(function(result, err){
             if(result){
                 console.log(result.receipt.status);

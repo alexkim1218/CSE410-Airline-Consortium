@@ -1,5 +1,5 @@
-var Ballot = artifacts.require("Ballot");
+var Consortium = artifacts.require("Consortium");
 
 module.exports = function(deployer) {
-  deployer.deploy(Ballot,4);
+  deployer.deploy(Consortium);
 };
