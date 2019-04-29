@@ -4,28 +4,32 @@ contract Consortium {
 
     address chairperson;
 
-    mapping (address => uint) public airlines_map;
+    struct user {
+        uint airline;
+    }
+
+    mapping (address => user) public airlines_map;
 
     constructor () public {
         chairperson = msg.sender;
-        register(chairperson, 1);
+        register(chairperson);
     }
 
-    function register(address user, uint airline_id) public {
-        airlines_map[user] = airline_id;
+    function register(address user) public {
+        airlines_map[user].airline = 1;
     }
 
     function unregister(address user) public {
-        airlines_map[user] = 0;
+        airlines_map[user].airline = 0;
     }
 
     function settle_payment(uint airline_id) private {
-        airlines_map[msg.sender] = airline_id;
+        airlines_map[msg.sender].airline = airline_id;
      }
 
      // Airlines response to user's request by doing validation and settle payment if it's good
      function response(uint airline_requested) public {
-        require(airlines_map[msg.sender] != airline_requested);
+        if (airlines_map[msg.sender].airline == airline_requested) return;
         settle_payment(airline_requested);
      }
 }

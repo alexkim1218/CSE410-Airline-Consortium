@@ -64,6 +64,8 @@ App = {
         if(web3.eth.coinbase != accounts[i]){
           var optionElement = '<option value="'+accounts[i]+'">'+accounts[i]+'</option';
           jQuery('#enter_address').append(optionElement);  
+        }else {
+          jQuery('#chairperson').append(accounts[i]);
         }
       });
     });
@@ -90,7 +92,7 @@ App = {
     var voteInstance;
     App.contracts.response.deployed().then(function(instance) {
       voteInstance = instance;
-      return voteInstance.register(addr, 1);
+      return voteInstance.register(addr);
     }).then(function(result, err){
         if(result){
             if(parseInt(result.receipt.status) == 1)
@@ -121,12 +123,16 @@ App = {
       }).then(function(result, err){
             if(result){
                 console.log(result.receipt.status);
-                if(parseInt(result.receipt.status) == 1)
-                alert(account + " voting done successfully")
-                else
-                alert(account + " voting not done successfully due to revert")
+                if(parseInt(result.receipt.status) == 1) {
+                  alert(account + " changing done successfully");
+                  jQuery('#airline').empty().append(proposalId);
+                  console.log(proposalId);
+                }
+                else {
+                  alert(account + " changing not done successfully due to revert");
+                }
             } else {
-                alert(account + " voting failed")
+                alert(account + " changing failed");
             }   
         });
     });
