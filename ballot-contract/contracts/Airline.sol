@@ -12,15 +12,15 @@ contract Consortium {
 
     constructor () public {
         chairperson = msg.sender;
-        register(chairperson);
+        register(chairperson, 1);
     }
 
-    function register(address user) public {
-        airlines_map[user].airline = 1;
+    function register(address _user, uint airline_id) public {
+        airlines_map[_user].airline = airline_id;
     }
 
-    function unregister(address user) public {
-        airlines_map[user].airline = 0;
+    function unregister(address _user) public {
+        airlines_map[_user].airline = 0;
     }
 
     function settle_payment(uint airline_id) private {
@@ -29,7 +29,8 @@ contract Consortium {
 
      // Airlines response to user's request by doing validation and settle payment if it's good
      function response(uint airline_requested) public {
+        //require(airline_requested > 0);
         if (airlines_map[msg.sender].airline == airline_requested) return;
-        settle_payment(airline_requested);
+        else { settle_payment(airline_requested); }
      }
 }
