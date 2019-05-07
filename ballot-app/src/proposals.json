@@ -3,24 +3,28 @@
     "id": 1,
     "name": "ANA Airline",
     "picture": "images/ANA.jpg",
-    "seat": 3
+    "seat": 3,
+    "balance": 100
   },
   {
     "id": 2,
     "name": "Qatar Airline",
     "picture": "images/Qatar.jpg",
-    "seat": 2
+    "seat": 2,
+    "balance": 100
   },
   {
     "id": 3,
     "name": "Malaysia Airline",
     "picture": "images/malaysia.jpg",
-    "seat": 1
+    "seat": 1,
+    "balance": 100
   },
   {
     "id": 4,
     "name": "Singpore Airline",
     "picture": "images/singapore.jpeg",
-    "seat": 0
+    "seat": 0,
+    "balance": 100
   }
 ]

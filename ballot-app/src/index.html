@@ -21,7 +21,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
-          <h1 class="text-center">Pick your Airline</h1>
+          <h1 class="text-center">Airline Consortium</h1>
           <hr/>
           <br/>
         </div>
@@ -36,13 +36,22 @@
         <div class="panel panel-default panel-proposal">
           <div class="panel-heading">
             <h3 class="panel-title" style="text-align:center"></h3>
+            <div class="row">
+              <div class="col">
+                <h3 style="float:left; margin-left:30px;">balance:</h3>
+              </div>
+              <div class="col">
+                <h3 class="panel-balance" style="text-align: center;"></h3>
+              </div>
+            </div>
           </div>
           <div class="panel-body">
+            <h4 class="airline-address" style="margin:0"></h4>
             <img alt="140x140" data-src="holder.js/170x170" class="img-rounded img-center" style="width: 230px; height: 280px;" data-holder-rendered="true">
             <br/>
             <div style="text-align: center; clear: both;"><h3 style="float:left; margin-left:50px;">seats left : </h3><h3 class="seat-panel" style="float:right; margin-right: 50px;"></h3></div>
             <div class="col-md-12 text-center"> 
-              <button class="btn btn-primary btn-vote" type="button" data-id="0">Buy ticket</button>
+              <button class="btn btn-primary btn-vote" type="button" data-id="0">Send passenger</button>
             </div>  
           </div>
         </div>
@@ -50,28 +59,16 @@
     </div>
 
     <div class="container">
-      <!-- <div class="row" id="address_div">
-        <div style="margin-left: 15px;margin-top: 10px;">
-          <span> Address : </span>
-          <select id="enter_address" value=""></select>
-        </div>
-      </div>
-        <br> 
-      <div class="row" id="register_div">
-        <div style="margin-left: 15px;">
-          <button class="btn btn-info" type="button" id="register">Register</button>
-        </div>
-      </div>-->
       <br>
-      <div class="row" style="margin-right: 15px; font-size:20px;">User Address :
-        <div id="chairperson"></div>
-      </div>
-      <br>
-      <div class="row" style="margin-right: 15px; font-size:20px;">Airline :
+      <div style="margin-right: 15px; font-size:20px;">Airline assigned:
         <div id="airline">0</div>
       </div>
       <br>
-    </div>
+      <h3>ticket price: 100</h3>
+      <br>
+      <div style="margin-right: 15px; font-size:20px;">Chairperson :
+        <div id="chairperson"></div>
+      </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
