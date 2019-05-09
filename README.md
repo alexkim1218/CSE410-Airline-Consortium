@@ -5,6 +5,13 @@ By Alex Kim & ChoongLiang Tan
 In addition, make sure you installed MetaMask on your web browser.
 If you're not using WebStorm, only apply to IDE and Terminal.**
 
+Starting truffle 
+================
+1. start Ganache.
+2. cd into ballot-contract.
+3. first ```truffle migrate --reset```
+4. then ```truffle migrate ```
+
 Starting server
 ===============
 
@@ -19,5 +26,6 @@ MongoDB connected
 
 4. Now the server is running. To access pages, open any web browser and type:
 For example, for Port Number 3000, ```localhost:3000```.
-5. Open Ganache application on your computer to start synchronization.
-6. Lastly, press Control + c to terminate the server.
+5. Lastly, press Control + c to terminate the server.
+
+if you ran into metamask related issue, an account reset would most likely to fix the issue.
