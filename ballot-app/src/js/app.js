@@ -41,6 +41,8 @@ App = {
           App.seats.push(parseInt(storage_data[0]));
           App.balances.push(parseInt(storage_data.substring(2,5)));
         }
+
+        jQuery('#airline').empty().append(App.names[currentAirline]);
       }
       else {
         for (i = 0; i < data.length; i ++) {
@@ -211,6 +213,9 @@ App = {
                     console.log('id to change', old_seat);
                     currentAirline = proposalId-1;
                     console.log('current airline', currentAirline);
+                    temp_list = new Array();
+                    temp_list.push(currentAirline);
+                    localStorage.setItem('current', temp_list);
 
                     // Update balance then store to storage
                     App.balances[proposalId-1] += 100;
@@ -255,7 +260,7 @@ App = {
                     console.log('current airline', currentAirline);
                     var temp_airline = new Array();
                     temp_airline.push(currentAirline);
-                    console.log('temp',temp_airline);
+                    //console.log('temp',temp_airline);
                     localStorage.setItem('current', temp_airline);
 
                     // Update balance then store to storage
